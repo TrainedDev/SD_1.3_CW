@@ -3,60 +3,55 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 
-const players = [
+ const games = [
     {
       id: 1,
-      name: 'Virat Kohli',
-      country: 'India',
-      role: 'Batsman',
-      runs: 12000,
-      wickets: 4,
+      title: 'The Legend of Zelda: Breath of the Wild',
+      genre: 'Action-adventure',
+      platform: 'Nintendo Switch',
+      releaseYear: 2017,
     },
     {
       id: 2,
-      name: 'James Anderson',
-      country: 'England',
-      role: 'Bowler',
-      runs: 1243,
-      wickets: 600,
+      title: 'God of War',
+      genre: 'Action-adventure',
+      platform: 'PlayStation 4',
+      releaseYear: 2018,
     },
     {
       id: 3,
-      name: 'Kane Williamson',
-      country: 'New Zealand',
-      role: 'Batsman',
-      runs: 7000,
-      wickets: 29,
+      title: 'Cyberpunk 2077',
+      genre: 'Role-playing',
+      platform: 'PC',
+      releaseYear: 2020,
     },
     {
       id: 4,
-      name: 'Pat Cummins',
-      country: 'Australia',
-      role: 'Bowler',
-      runs: 750,
-      wickets: 250,
+      title: 'Hollow Knight',
+      genre: 'Metroidvania',
+      platform: 'PC',
+      releaseYear: 2017,
     },
     {
       id: 5,
-      name: 'Ben Stokes',
-      country: 'England',
-      role: 'All-rounder',
-      runs: 4500,
-      wickets: 150,
+      title: 'Minecraft',
+      genre: 'Sandbox',
+      platform: 'Multi-platform',
+      releaseYear: 2011,
     },
-  ];
+  ]
 
 //   Question 2
-app.get("/players", (req, res) => {
-    res.status(200).json({ usersData: players });
+app.get("/games", (req, res) => {
+    res.status(200).json({ usersData: games });
 });
 
 //Question 3 
-app.get("/players/:id", (req, res) => {
+app.get("/games/:id", (req, res) => {
     const id = parseInt(req.params.id);
-    const data = players.find(ele => ele.id === id);
+    const data = games.find(ele => ele.id === id);
 
-    res.json({ player: data });
+    res.json({ game: data });
 });
 
 

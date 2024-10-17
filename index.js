@@ -2,56 +2,55 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 app.use(cors());
-
- const games = [
+const users = [
     {
       id: 1,
-      title: 'The Legend of Zelda: Breath of the Wild',
-      genre: 'Action-adventure',
-      platform: 'Nintendo Switch',
-      releaseYear: 2017,
+      username: 'octocat',
+      name: 'The Octocat',
+      repoCount: 8,
+      location: 'San Francisco',
     },
     {
       id: 2,
-      title: 'God of War',
-      genre: 'Action-adventure',
-      platform: 'PlayStation 4',
-      releaseYear: 2018,
+      username: 'torvalds',
+      name: 'Linus Torvalds',
+      repoCount: 25,
+      location: 'Portland',
     },
     {
       id: 3,
-      title: 'Cyberpunk 2077',
-      genre: 'Role-playing',
-      platform: 'PC',
-      releaseYear: 2020,
+      username: 'gaearon',
+      name: 'Dan Abramov',
+      repoCount: 50,
+      location: 'London',
     },
     {
       id: 4,
-      title: 'Hollow Knight',
-      genre: 'Metroidvania',
-      platform: 'PC',
-      releaseYear: 2017,
+      username: 'addyosmani',
+      name: 'Addy Osmani',
+      repoCount: 42,
+      location: 'Mountain View',
     },
     {
       id: 5,
-      title: 'Minecraft',
-      genre: 'Sandbox',
-      platform: 'Multi-platform',
-      releaseYear: 2011,
+      username: 'tj',
+      name: 'TJ Holowaychuk',
+      repoCount: 150,
+      location: 'Victoria',
     },
-  ]
+  ];
 
 //   Question 2
-app.get("/games", (req, res) => {
-    res.status(200).json({ usersData: games });
+app.get("/users", (req, res) => {
+    res.status(200).json({ usersData: users });
 });
 
 //Question 3 
-app.get("/games/:id", (req, res) => {
+app.get("/users/:id", (req, res) => {
     const id = parseInt(req.params.id);
-    const data = games.find(ele => ele.id === id);
+    const data = users.find(ele => ele.id === id);
 
-    res.json({ game: data });
+    res.json({ user: data });
 });
 
 
